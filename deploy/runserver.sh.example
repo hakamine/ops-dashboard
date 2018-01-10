@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# Example script to run the web app for development
+# - Install the dependencies in requirements.txt in a virtualenv and activate it
+# - Edit the env vars values and save as runserver.sh
+# - Run runserver.sh
+
+export DIGITALOCEAN_API_TOKEN="your_API_token" 
+export OVH_APPLICATION_KEY="your_app_key"
+export OVH_APPLICATION_SECRET="your_app_secret"
+export OVH_CONSUMER_KEY="your_consumer_key"
+
+cd ../opsdash
+gunicorn --reload opsdash.wsgi:application
+
